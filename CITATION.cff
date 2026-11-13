@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below. This is a software citation, not a scientific publication."
+title: "AURORA GEOINTELLIGENCE XAI"
+abstract: "Experimental CPU-first geospatial image analysis demo with explicit limitations and traceable exports."
+authors:
+  - family-names: Aquino
+    given-names: Felipe Marcos de Abreu
+    affiliation: "Impulso Digital Soluções em I.A. Ltda."
+version: 0.1.0
+date-released: 2026-11-13
+license: Apache-2.0
+repository-code: "https://github.com/felipetjmg1-bit/aurora-geointelligence-xai"
+keywords:
+  - geospatial AI
+  - remote sensing
+  - explainable AI

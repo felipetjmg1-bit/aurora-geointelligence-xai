@@ -1,0 +1,24 @@
+flowchart LR
+  U[Pesquisador] --> UI[Gradio Command Center]
+  UI --> V[Validação de upload]
+  V --> G{Formato de entrada}
+  G -->|PNG / JPEG| P[Pillow]
+  G -->|TIFF / GeoTIFF| R[Rasterio quando disponível]
+  P --> M[Metadados disponíveis]
+  R --> M
+  P --> PV[Preview RGB com stretch de exibição]
+  R --> PV
+  PV --> K[MiniBatchKMeans • grupos visuais sem rótulo]
+  R --> SI[NDVI / NDWI somente com bandas escolhidas]
+  P --> SI
+  K --> X[Overlay ilustrativo dos grupos]
+  K --> J[Relatório JSON rastreável]
+  SI --> J
+  M --> J
+  X --> E[ZIP de exportação]
+  J --> E
+  T[Testes pytest] --> C[GitHub Actions]
+  style UI fill:#123447,stroke:#31c9a6,color:#fff
+  style K fill:#30334d,stroke:#9c86ff,color:#fff
+  style SI fill:#173d39,stroke:#1fc8b4,color:#fff
+  style E fill:#20334a,stroke:#42a5f5,color:#fff

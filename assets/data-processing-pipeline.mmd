@@ -1,0 +1,17 @@
+flowchart TD
+  A[Selecionar arquivo autorizado] --> B{Formato, tamanho, pixels válidos?}
+  B -->|Não| E[Erro legível; sem análise]
+  B -->|Sim| C[Decodificar pixels e metadados disponíveis]
+  C --> D[Preview RGB • stretch percentil 2–98]
+  D --> F[MiniBatchKMeans em RGB do preview]
+  F --> G[Grupos visuais arbitrários]
+  C --> H{NDVI/NDWI pedido?}
+  H -->|Não| J[Compilar relatório com limitações]
+  H -->|Sim| I[Aplicar fórmula às duas bandas escolhidas]
+  I --> J
+  G --> J
+  J --> K[ZIP: JSON + PNGs derivados]
+  K --> L[Revisão humana; não é validação científica]
+  style E fill:#60343b,stroke:#f18484,color:#fff
+  style G fill:#29324a,stroke:#a690ff,color:#fff
+  style L fill:#24433b,stroke:#47c9a0,color:#fff
