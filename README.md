@@ -1,5 +1,5 @@
 ---
-title: AURORA GEOINTELLIGENCE XAI
+title: Aurora Geointelligence XAI — Experimental Geospatial AI
 emoji: ""
 colorFrom: green
 colorTo: blue
@@ -10,110 +10,115 @@ python_version: "3.11"
 
 # AURORA GEOINTELLIGENCE XAI
 
-### Inteligência da Terra. Código aberto. Evidência antes de promessa.
+[![Status: experimental MVP](https://img.shields.io/badge/status-experimental%20MVP-orange?style=flat-square)](docs/ABSTRACT.md)
+[![Production: not ready](https://img.shields.io/badge/production-not%20ready-red?style=flat-square)](#what-this-repository-does-not-claim)
+[![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-3776AB?style=flat-square)](requirements.txt)
+[![Runtime: CPU-first](https://img.shields.io/badge/runtime-CPU--first-blue?style=flat-square)](docs/TECHNICAL_SPECIFICATION.md)
+[![License: Apache 2.0](https://img.shields.io/badge/license-Apache--2.0-brightgreen?style=flat-square)](LICENSE)
 
-![Aurora GeoIntelligence — arte conceitual](assets/aurora-geointelligence-hero.png)
+> **An open, experimental Python MVP for geospatial image inspection, remote-sensing exploration and traceable analysis reports.** The current baseline uses NumPy, Rasterio, Pillow and scikit-learn; it is not a PyTorch deep-learning engine and is not a production or forensic system.
 
-**Uma iniciativa de pesquisa e desenvolvimento da Impulso Digital Soluções em I.A. Ltda.** Desenvolvido no Brasil. Fundador e responsável técnico informado para o projeto: Felipe Marcos de Abreu Aquino — Founder, CEO & Chief AI Architect.
+## Manifesto for technological sovereignty — English
 
-> **Estado público:** MVP experimental v0.1.0, executável em CPU. O núcleo atual inspeciona imagens, registra metadados disponíveis, agrupa pixels por cor de forma reprodutível e calcula índices espectrais opcionais quando as bandas são informadas pela pessoa usuária. **Não é ainda um modelo geoespacial treinado, não usa PyTorch e não reivindica acurácia científica ou explicabilidade de um modelo aprendido.**
+> **A press release is not sovereign infrastructure. Code that people can inspect, run, challenge and maintain is.**
 
----
+Digital-sovereignty rhetoric from Brasília—including public debate associated with MCTI/SETAD—does not by itself create compute access, predictable funding, technical continuity or meaningful channels for independent builders. The gap between official ambition and the material conditions that independent engineers report is a political problem, not an engineering achievement.
 
-## Manifesto de ruptura e soberania tecnológica
+Aurora is an autonomous, openly documented engineering effort built outside the state bureaucracy. This repository answers rhetoric with code, explicit limitations and reproducible tests. It is the authors’ political position and account of reported experience—not an official investigation, a finding of misconduct, a claim about any named public servant, or a government-sponsored program. No state body is represented as endorsing or participating in this project.
 
-> **Soberania tecnológica não é slogan de gabinete. É capacidade instalada, infraestrutura acessível, financiamento, governança, continuidade e engenharia que qualquer pessoa possa auditar.**
+The global ambition is real: build geospatial software that can withstand the scrutiny applied at leading Deep Tech and Earth-observation research centers. **That is a target for engineering and independent validation, not a claim that the current prototype already matches their performance.**
 
-O Brasil não terá soberania digital apenas porque ela aparece em discursos, planos, eventos ou apresentações. Quando a ambição anunciada em Brasília — inclusive no debate público associado ao MCTI e à SETAD — não se converte em caminhos materiais e acessíveis para quem pesquisa e constrói fora dos círculos consolidados, há uma distância política entre a promessa e a capacidade real.
+## Manifesto de soberania tecnológica — português
 
-Este projeto registra, como **posição e experiência relatada por seus autores**, o custo dessa distância: portas difíceis de abrir, pouca previsibilidade e silêncio burocrático diante de quem tenta transformar pesquisa independente em infraestrutura. É uma crítica institucional e programática; não é relatório oficial, não imputa ilegalidade a uma pessoa específica e não afirma que qualquer órgão tenha endossado ou participado deste projeto. O ponto é simples: **a ausência de resposta administrativa não mede o valor da engenharia — mas pode desperdiçar tempo, talento e capacidade nacional.**
+> **Nota à imprensa não é infraestrutura soberana. É código que outras pessoas podem inspecionar, executar, contestar e manter.**
 
-A Aurora escolhe responder com código, limites explícitos, documentação e testes reproduzíveis. Não pedimos que um gabinete declare este trabalho soberano. Pedimos que engenheiros, pesquisadores, financiadores e instituições o examinem pelo que está publicado — e que cobrem de qualquer política de soberania os meios concretos para que projetos independentes possam ser construídos, avaliados e sustentados.
+O discurso de soberania digital em Brasília — inclusive o debate público associado ao MCTI/SETAD — não cria, por si só, acesso a computação, financiamento previsível, continuidade técnica nem canais efetivos para construtores independentes. A distância entre a ambição oficial e as condições materiais relatadas por quem constrói fora dos circuitos consolidados é um problema político, não uma realização de engenharia.
 
-### Ambição global, evidência local
+A Aurora é um esforço de engenharia autônomo, documentado abertamente e construído à margem da burocracia estatal. Este repositório responde ao discurso com código, limites explícitos e testes reproduzíveis. O texto expressa a posição política e a experiência relatada pelos autores: não é investigação oficial, constatação de irregularidade, acusação contra servidor específico nem declaração de apoio ou participação de órgão público.
 
-A missão é desenvolver inteligência geoespacial explicável e auditável para apoiar transparência, auditoria e justiça socioambiental. Essa ambição é estratégica e global; a versão disponível, porém, é um MVP de exploração visual. **Nossa meta é disputar o mesmo padrão de exigência técnica e científica dos principais centros de Deep Tech do mundo — não alegar equivalência de desempenho antes de modelos, benchmarks e validação independente que a demonstrem.**
+A ambição é global: desenvolver software geoespacial capaz de suportar o rigor técnico e científico dos principais centros de Deep Tech e observação da Terra. **Isso é uma meta de engenharia e validação independente, não uma alegação de que o protótipo atual já tenha desempenho equivalente.**
 
-A regra editorial deste repositório é deliberada: separar o que roda hoje do que ainda é pesquisa, hipótese ou roadmap. Essa honestidade não diminui a ambição; é a condição para que ela possa ser levada a sério.
+![Visual conceitual da Aurora Geointelligence sobre a América do Sul](assets/aurora-geointelligence-hero.png)
 
----
+## Project status / estado do projeto
 
-## O que existe nesta versão
+O repositório pertence à iniciativa Impulso Digital Soluções em I.A. Ltda. e publica um **MVP experimental v0.1.0**, executável localmente em CPU. A distinção entre o que funciona, o que é direção de pesquisa e o que ainda não foi validado é parte deliberada do projeto.
 
-A aplicação oferece um caminho local e de baixo custo para inspecionar arquivos raster, visualizar seus dados e registrar cada execução. Não há treinamento de modelos nesta versão.
+| Área | Estado verificável nesta versão |
+|---|---|
+| Aplicação | Interface Gradio; processamento local no processo da aplicação; upload manual de imagem. |
+| Imagens | PNG, JPEG, TIFF e GeoTIFF; limite de 100 MB e 50 milhões de pixels. |
+| Dados | Matrizes NumPy `float32`; Rasterio lê metadados geoespaciais disponíveis em TIFF/GeoTIFF. |
+| Baseline | scikit-learn `MiniBatchKMeans` determinístico sobre pixels RGB do preview; não é classificação de cobertura do solo. |
+| Índices | NDVI/NDWI opcional, com bandas escolhidas pela pessoa usuária; sensor, comprimento de onda e calibração não são inferidos. |
+| Saídas | Imagens derivadas e pacote ZIP com `analysis_report.json`, parâmetros e metadados disponíveis. Relatório rastreável não equivale a cadeia de custódia criptográfica. |
+| PyTorch | **Não está nas dependências nem no motor desta versão.** Os dados não são `torch.Tensor`; uma avaliação futura está no roadmap. |
+| XAI de modelo | **Não implementada nem validada.** Máscara/overlay mostra grupos de cor, não causalidade, atenção, Grad-CAM ou explicação de decisão de um modelo treinado. |
+| Produção e uso forense | **Não prontos.** Não há benchmark anotado, validação independente, certificação, controles de produção ou cadeia de custódia para evidência judicial. |
+| MLCommons | Nenhum benchmark, certificação, conformidade ou afiliação é declarado neste repositório. |
+| Finep/CDTI | Nenhum financiamento, convênio, parceria, seleção ou participação em iniciativa Brasil–Espanha é declarado. Menções são convite aberto, não endosso. |
 
-| Capacidade | Implementação atual | Limite que importa |
-|---|---|---|
-| Entrada | PNG, JPEG, TIFF e GeoTIFF; até 100 MB e 50 milhões de pixels | O arquivo é enviado manualmente; não há busca automática em catálogos orbitais. |
-| Metadados | Rasterio lê CRS, limites, resolução, tags e no-data de TIFF/GeoTIFF quando disponíveis | Metadados ausentes não são inferidos nem completados pelo sistema. |
-| Pré-visualização | RGB das três primeiras bandas (ou banda única), stretch percentil 2–98, lado máximo de 768 px | O stretch é visual; não é calibração radiométrica. |
-| Agrupamento | scikit-learn `MiniBatchKMeans`, 2–8 grupos, `random_state=42` | Agrupa cores do preview; não identifica classes semânticas de cobertura do solo. |
-| Índices | NDVI/NDWI opcional com posições de bandas informadas pela pessoa usuária | A ferramenta não verifica sensor, comprimento de onda ou calibração. Resultado não comprova condição ambiental. |
-| Saída | Imagens derivadas e ZIP com `analysis_report.json`, parâmetros, metadados e limitações | Relatórios tornam o processamento inspecionável; não equivalem a validação científica. |
+## What this repository does not claim
 
-![Diagrama da arquitetura da Aurora](assets/architecture-diagram.png)
+- Não é um serviço em produção nem um modelo geoespacial de deep learning.
+- Não reivindica conformidade com MLCommons Inference, um padrão de XAI, certificação ou benchmark não publicado.
+- Não declara cooperação formal com Finep, CDTI, MCTI, SETAD, Banco Central, MLCommons ou qualquer outro órgão ou organização.
+- Não é ferramenta pericial validada, não produz prova judicial e não substitui profissional habilitado. Uma futura utilização em processo judicial exigiria validação independente, proveniência e licença dos dados, integridade e cadeia de custódia, revisão humana e avaliação jurídica adequada.
+- Não interpreta automaticamente os clusters como água, vegetação, edificações ou uso do solo, e não comprova condição ambiental.
 
-### XAI: o que o nome significa — e o que não significa
+Badges oficiais ou de parceria só serão incluídos após evidência verificável e autorização apropriada. Os badges acima descrevem o estado atual; não são certificações.
 
-Neste MVP, transparência significa expor as etapas, parâmetros, metadados e ressalvas do processamento. A máscara e o overlay mostram onde os grupos visuais aparecem na imagem; **não são Grad-CAM, explicação causal nem evidência de por que um modelo treinado tomou uma decisão**, porque este repositório ainda não contém tal modelo. Os grupos não são água, vegetação, edificações ou classes de uso do solo.
+## Technical architecture / arquitetura técnica
 
-### PyTorch e modelos geoespaciais: próximos passos, não capacidade atual
+```text
+Arquivo enviado manualmente
+        │
+        ├─ PNG/JPEG ── Pillow ─┐
+        └─ TIFF/GeoTIFF ─ Rasterio ─ metadados disponíveis
+                              │
+                     matriz NumPy float32
+                              │
+             preview RGB (stretch percentil 2–98)
+                              │
+         MiniBatchKMeans no preview (random_state=42)
+                 │                         │
+       máscara/overlay visual      NDVI/NDWI opcional
+                                  (bandas explícitas)
+                 └────────────┬────────────┘
+                         ZIP de saída
+            JSON de relatório + imagens derivadas
+```
 
-O código funcional desta versão usa NumPy, Pillow, Rasterio e scikit-learn; **PyTorch não consta nas dependências nem no motor atual**. A avaliação de modelos pré-treinados e de componentes do ecossistema PyTorch/TorchGeo está no roadmap. Uma integração só será anunciada depois de verificados licença, sensores e bandas, custo de inferência, testes e avaliação documentada. Até lá, o agrupamento atual permanece identificado como baseline exploratório — não como motor de Deep Learning.
+O núcleo está em [`src/aurora_geointelligence/core.py`](src/aurora_geointelligence/core.py), a interface em [`app.py`](app.py), e a suíte local em [`tests/`](tests/). O diagrama completo está em [`assets/architecture.mmd`](assets/architecture.mmd).
 
----
+O alongamento percentil 2–98 serve apenas à visualização do preview. O agrupamento usa RGB do preview, de modo que iluminação, sensor, nuvens e composição podem alterar os grupos. NDVI/NDWI só são úteis quando as bandas e a calibração da imagem são adequadas; essa semântica precisa ser fornecida e verificada pela pessoa usuária. Veja o [protocolo de validação](docs/VALIDATION_PROTOCOL.md) e as [limitações](docs/LIMITATIONS.md).
+
+### Auditoria, explicabilidade e justiça
+
+A versão torna etapas e parâmetros mais inspecionáveis ao registrar metadados disponíveis, configurações, resultados e ressalvas em JSON. Isso ajuda a reproduzir uma exploração, mas **não torna o resultado uma perícia**, não oferece explicação de um modelo aprendido e não assegura admissibilidade ou força probatória. Não há assinatura criptográfica nem cadeia de custódia. Não use o MVP para fiscalização, emergência, decisão ambiental/regulatória ou decisão judicial sem validação científica e revisão humana independentes.
 
 ## Dossiê do ecossistema Aurora
 
-Os projetos abaixo compartilham uma agenda de pesquisa em soberania e infraestrutura, mas não formam uma plataforma integrada em produção. Cada repositório tem estágio, escopo e evidência próprios.
+Os nomes abaixo compõem uma agenda comum de pesquisa e prototipagem. **Não formam uma plataforma integrada em produção.** O status de cada iniciativa e as evidências observáveis estão detalhados em [`docs/ECOSYSTEM.md`](docs/ECOSYSTEM.md).
 
-### 1. Aurora Geointelligence XAI — Oráculo X-37
+| Projeto | Escopo declarado | O que está público — e o que não deve ser inferido |
+|---|---|---|
+| **Aurora Geointelligence XAI / Oráculo X-37** | Inspeção geoespacial reproduzível, auditoria de processamento e geoprocessamento transparente. | Este repositório é um MVP de imagens e agrupamento visual. [Oráculo X-37](https://github.com/felipetjmg1-bit/oraculo-x37) é repositório relacionado e independente; não é um motor PyTorch integrado aqui. |
+| **Aurora DREX** | Arquitetura proposta de integração soberana e auditável para fluxos de dados/serviços ligados a moedas digitais de Estado. | Não há integração operacional com Drex, Banco Central, rede financeira, piloto, autorização ou parceria declarada. |
+| **Projeto Cristal / Quartzo 5D** | Pesquisa conceitual de persistência e armazenamento de longo prazo. | [API demonstrativa](https://github.com/felipetjmg1-bit/cristal-quartzo-aurora) e [simulador web](https://github.com/felipetjmg1-bit/CRISTAL-5D-V.4.0-MODULO-1). Não demonstram gravação ou leitura óptica física em quartzo. |
+| **Projeto Ybyrá** | Protótipo educacional de conceitos de biocomputação, codificação inspirada em DNA e criptografia quântica. | [Repositório Ybyrá](https://github.com/felipetjmg1-bit/projeto-ybyra). Software e simulação clássica; sem tecido biológico, hardware quântico, enlace QKD real ou segurança validada para produção. |
 
-**Objetivo:** inspeção geoespacial reproduzível, registro de metadados e processamento transparente de imagens, como base para futuras ferramentas de auditoria e análise ambiental.
+## Chamada global: revisão independente e cooperação concreta
 
-**Hoje:** MVP Gradio/Python em CPU; leitura de imagens e metadados, agrupamento visual determinístico, índices espectrais opcionais e relatório JSON. O [Oráculo X-37](https://github.com/felipetjmg1-bit/oraculo-x37) é um repositório relacionado de classificação/regressão e ferramentas determinísticas de análise explicável; não deve ser confundido com um modelo geoespacial treinado integrado a este MVP.
+Desenvolvedores, pesquisadores de geoinformação e observação da Terra, laboratórios de Deep Tech, investidores, fundos de Venture Capital e parceiros estratégicos: a engenharia brasileira precisa ser examinada pelo código e pela evidência — não por proximidade a um gabinete. **Inspecionem, reproduzam, apontem falhas e proponham benchmarks.**
 
-**Ainda não existe aqui:** classificador supervisionado de sensoriamento remoto, pesos especializados, XAI de modelo validada, benchmark anotado, análise temporal ou integração com STAR.VISION/OSE. Consulte [`docs/LIMITATIONS.md`](docs/LIMITATIONS.md) e [`docs/ROADMAP.md`](docs/ROADMAP.md).
+A comunidade MLCommons e as frentes de cooperação Brasil–Europa/Brasil–Espanha são convidadas a conhecer o projeto e, se houver interesse e escopo, conversar sobre colaboração verificável. Este convite não declara participação, reconhecimento, parceria, financiamento ou validação por MLCommons, Finep, CDTI, MCTI/SETAD ou qualquer outra entidade. Soberania tecnológica não se decreta em portaria: depende de capacidade instalada, governança e código que possa ser executado e auditado.
 
-### 2. Arquitetura de Integração Soberana — Aurora DREX
+Para começar, abra uma issue técnica ou envie um pull request. Propostas de colaboração devem explicitar recursos, responsabilidades, governança de dados e critérios de validação. Não envie dados pessoais, confidenciais ou sem autorização.
 
-**Objetivo de pesquisa:** desenhar uma camada de interoperabilidade auditável para fluxos de dados e serviços, com atenção a governança, rastreabilidade, controle e dependências tecnológicas.
+## Quickstart / executar localmente
 
-**Estágio:** direção arquitetural/proposta do ecossistema, não integração operacional com o Drex, com o Banco Central ou com qualquer rede financeira. Este repositório não declara parceria, autorização, certificação ou participação em piloto. Demonstrações de compromissos e provas de inclusão Merkle em outros projetos são componentes didáticos; não constituem integração ao Drex nem prova zero-knowledge.
-
-### 3. Persistência de longo prazo — Projeto Cristal / Quartzo 5D
-
-**Objetivo de pesquisa:** explorar conceitos de preservação e armazenamento de longo prazo.
-
-**Artefatos públicos relacionados:** [Cristal de Quartzo Aurora — API demonstrativa](https://github.com/felipetjmg1-bit/cristal-quartzo-aurora) e [Cristal 5D — simulador web](https://github.com/felipetjmg1-bit/CRISTAL-5D-V.4.0-MODULO-1).
-
-**Estágio verificável:** a API simula operações de ingestão, recuperação e status; a aplicação web visualiza etapas conceituais. Os repositórios não demonstram gravação/leitura óptica, armazenamento físico persistente em cristal ou integração real com Drex. “Quartzo 5D” identifica uma linha de pesquisa e prototipagem, não uma capacidade de armazenamento físico já disponível.
-
-### 4. Biocomputação e criptografia — Projeto Ybyrá
-
-**Objetivo de pesquisa:** explorar, em software educacional, ideias de codificação inspirada em DNA, análise explicável simples e conceitos de criptografia quântica.
-
-**Artefato:** [Projeto Ybyrá — Árvore-Mãe](https://github.com/felipetjmg1-bit/projeto-ybyra).
-
-**Estágio verificável:** protótipo de software com codificação digital inspirada em DNA, módulos simples de XAI, dados sintéticos e simulação clássica de etapas do BB84, além de demonstração de inclusão Merkle. Não há hardware biológico, computação em tecido vivo, enlace quântico/QKD real, integração Drex ou validação de segurança para produção. As demonstrações não devem ser tratadas como sistemas implantados.
-
----
-
-## Chamado global: código aberto, revisão independente, cooperação real
-
-À comunidade internacional de desenvolvedores, laboratórios de Deep Tech, fundos e investidores de tecnologia, pesquisadores de observação da Terra e parceiros estratégicos: **a engenharia soberana brasileira existe como trabalho concreto, código público e protótipos executáveis — e deve ser julgada com rigor técnico, não por sua proximidade a um gabinete.**
-
-Convidamos pessoas e instituições ligadas a iniciativas de cooperação Brasil–Europa, à comunidade MLCommons e a redes internacionais de IA e geotecnologia a revisar o código, propor benchmarks reproduzíveis, apontar falhas, discutir licenças e construir cooperação com escopo e responsabilidades claros. Esta menção é um convite aberto: **não declara afiliação, endosso, parceria, participação em programa ou validação por MLCommons, União Europeia ou qualquer entidade.**
-
-Não estamos pedindo validação por deferência. Estamos abrindo o trabalho à crítica verificável: inspeção de código, reprodução dos resultados, dados com licença clara, métricas adequadas e avaliação independente. Se a soberania tecnológica significa alguma coisa, ela precisa sobreviver a esse exame — e também precisa de condições materiais para que quem constrói consiga continuar.
-
-**Para contribuir:** abra uma issue com uma pergunta técnica ou proposta reproduzível, ou envie um pull request. Para colaboração institucional ou investimento, comece por uma issue pública que descreva escopo, recursos, governança de dados e critérios de validação. Não envie dados sigilosos, pessoais ou sem autorização.
-
----
-
-## Executar localmente
-
-Requer Python 3.11 ou superior. A execução é CPU-first e não exige GPU, token, banco de dados ou serviço pago.
+Requer Python 3.11 ou superior. O baseline não exige GPU, token, banco de dados ou serviço pago.
 
 ```bash
 python -m venv .venv
@@ -122,38 +127,38 @@ pip install -r requirements.txt
 python app.py
 ```
 
-Acesse `http://localhost:7860`, carregue uma imagem autorizada e selecione **Executar análise**. Para uma demonstração sem dados reais, use [`examples/synthetic_scene.png`](examples/synthetic_scene.png), uma composição artificial que não representa local ou imagem de satélite real.
-
-Para rodar os testes, com as dependências instaladas:
+Abra `http://localhost:7860`, carregue uma imagem autorizada e selecione **Executar análise**. Para experimentar sem dados reais, use [`examples/synthetic_scene.png`](examples/synthetic_scene.png), uma composição artificial, não uma cena de satélite real.
 
 ```bash
 pytest -q
 ```
 
-A documentação registra 11 testes locais e um smoke test HTTP em 13/11/2026; isso não substitui CI ativo, benchmark geoespacial ou validação científica independente. O workflow de referência está em [`docs/GITHUB_ACTIONS_WORKFLOW.yml`](docs/GITHUB_ACTIONS_WORKFLOW.yml), mas não está ativo em `.github/workflows/` neste repositório.
+O workflow de referência está em [`docs/GITHUB_ACTIONS_WORKFLOW.yml`](docs/GITHUB_ACTIONS_WORKFLOW.yml), mas ainda não está ativo em `.github/workflows/`; portanto, não há badge de CI ativo a exibir.
 
----
+## Estrutura do repositório
 
-## Documentação, governança e limites
+| Caminho | Conteúdo |
+|---|---|
+| `app.py` | Interface Gradio. |
+| `src/aurora_geointelligence/` | Núcleo de leitura, agrupamento, índices e geração de relatório. |
+| `tests/` | Testes do núcleo. |
+| `assets/` | Diagramas e arte conceitual, identificados como ilustração. |
+| `examples/` | Cena sintética e instruções de demonstração. |
+| `docs/` | Arquitetura, especificação, validação, segurança, dados, roadmap, ecossistema e contribuição. |
+| `requirements.txt`, `LICENSE`, `CITATION.cff` | Dependências, licença Apache-2.0 e metadados de citação. |
 
-- [Arquitetura](docs/ARCHITECTURE.md) · [Especificação técnica](docs/TECHNICAL_SPECIFICATION.md) · [Resumo](docs/ABSTRACT.md)
-- [Metodologia científica](docs/SCIENTIFIC_METHODOLOGY.md) · [Protocolo de validação](docs/VALIDATION_PROTOCOL.md) · [Limitações](docs/LIMITATIONS.md)
-- [Governança de dados](docs/DATA_GOVERNANCE.md) · [Segurança](docs/SECURITY.md) · [Roteiro](docs/ROADMAP.md)
-- [Matriz de anterioridade e referências](docs/RESEARCH_NOVELTY.md) · [Research novelty (English)](docs/RESEARCH_NOVELTY.en.md)
-- [Contribuição](docs/CONTRIBUTING.md) · [Citação](CITATION.cff)
+## Documentação
 
-Não envie material sigiloso a uma implantação pública. Os direitos sobre dados e imagens de terceiros permanecem com seus titulares. O código original está sob Apache-2.0; dependências mantêm suas próprias licenças. Não há publicação científica, DOI, certificação ou parceria institucional declarada neste repositório.
+Comece pelo [índice de documentação](docs/README.md). A documentação técnica também inclui [arquitetura](docs/ARCHITECTURE.md), [especificação](docs/TECHNICAL_SPECIFICATION.md), [resumo](docs/ABSTRACT.md), [método científico](docs/SCIENTIFIC_METHODOLOGY.md), [protocolo de validação](docs/VALIDATION_PROTOCOL.md), [limitações](docs/LIMITATIONS.md), [governança de dados](docs/DATA_GOVERNANCE.md), [segurança](docs/SECURITY.md), [roadmap](docs/ROADMAP.md), [novidade e anterioridade](docs/RESEARCH_NOVELTY.md), [ecossistema](docs/ECOSYSTEM.md), [contribuição](docs/CONTRIBUTING.md) e [citação](CITATION.cff).
 
----
+## English — technical summary
 
-## English — project brief
+Aurora Geointelligence XAI is an experimental, CPU-first Python MVP for geospatial-image inspection and reproducible exploration. It reads PNG, JPEG, TIFF and GeoTIFF imagery, records available raster metadata, creates a display preview, applies scikit-learn MiniBatchKMeans to preview RGB pixels, optionally computes NDVI/NDWI from user-selected bands, and exports images with a traceable JSON report.
 
-**AURORA GEOINTELLIGENCE XAI** is an experimental Brazilian research MVP for auditable, CPU-first inspection of geospatial imagery. The current implementation uses Gradio, NumPy, Rasterio, Pillow and scikit-learn MiniBatchKMeans; it reads available raster metadata, creates a display preview, groups preview pixels by color, optionally computes user-selected spectral indices, and exports a traceable JSON report.
+The implementation uses NumPy arrays, Rasterio, Pillow, scikit-learn and Gradio. **It does not use PyTorch, contain pretrained remote-sensing weights, provide validated model-level explainability, claim scientific accuracy, or constitute a production/forensic system.** Clusters are unlabeled visual groups; spectral indices depend on correct sensor bands and calibration. No MLCommons benchmark, Finep/CDTI partnership, institutional endorsement, legal admissibility or operational DREX/Cristal/Ybyrá integration is claimed.
 
-This release **does not use PyTorch, contain remote-sensing pretrained weights, provide validated model-level XAI, or claim scientific accuracy**. Clusters are not land-cover classes; optional NDVI/NDWI values depend on correct band selection and calibrated data. The ecosystem sections above link to related Aurora DREX, Cristal/Quartz 5D and Ybyrá projects while explicitly distinguishing proposals and software simulations from operational integrations or physical systems.
+The English and Portuguese manifestos express the authors’ political position. International developers, researchers and investors are invited to inspect the implementation, request reproducible evidence and discuss responsible cooperation.
 
-Our political position is direct: technological sovereignty requires sustained infrastructure and practical support, not slogans alone. Our global ambition is to meet world-class standards of engineering and scientific scrutiny; we do not claim equivalent performance without independent evidence. We welcome code review, reproducible benchmarks and responsible cooperation from international developers, Deep Tech researchers and strategic partners. References to MLCommons and Brazil–Europe cooperation are invitations, not claims of affiliation or endorsement.
+## License and data governance
 
-## Referências e declarações
-
-Este README distingue capacidades demonstráveis, relatos dos autores e objetivos de pesquisa. As menções institucionais são contextuais e não significam apoio, participação, financiamento ou parceria. A matriz de anterioridade registra fontes em [`docs/RESEARCH_NOVELTY.md`](docs/RESEARCH_NOVELTY.md); o repositório não afirma ser o primeiro do mundo nem reivindica desempenho ou patenteabilidade não demonstrados.
+O código original é distribuído sob [Apache-2.0](LICENSE); dependências mantêm suas próprias licenças. Não há publicação científica, DOI, certificação ou parceria institucional declarada neste repositório. Revise metadados geográficos e nomes de arquivos antes de compartilhar relatórios. Não envie dados sigilosos ou sujeitos a restrição. Consulte [`docs/DATA_GOVERNANCE.md`](docs/DATA_GOVERNANCE.md).
