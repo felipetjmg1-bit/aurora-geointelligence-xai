@@ -126,3 +126,30 @@ def test_end_to_end_creates_auditable_export(tmp_path):
         assert {"analysis_report.json", "cluster_mask.png", "overlay.png"}.issubset(set(z.namelist()))
         bundled = json.loads(z.read("analysis_report.json"))
         assert bundled["analysis"]["effective_clusters"] == 4
+
+
+
+def test_geotiff_nodata_is_masked_from_band_values(tmp_path):
+    path = tmp_path / "nodata.tif"
+    values = np.array([
+        [[10, 10], [20, 20]],
+        [[5, 5], [10, 10]],
+        [[-9999, 30], [-9999, 60]],
+    ], dtype=np.float32)
+    with rasterio.open(
+        path, "w", driver="GTiff", height=2, width=2, count=3,
+        dtype="float32", nodata=-9999, crs="EPSG:4326",
+        transform=from_origin(0, 2, 1, 1),
+    ) as dataset:
+        dataset.write(values)
+    data = load_raster(path)
+    assert np.isnan(data.bands[0, 0, 2])
+    assert np.isnan(data.bands[1, 0, 2])
+    assert np.isfinite(data.bands[0, 1, 2])
+
+
+def test_spectral_index_rejects_all_invalid_pixels():
+    bands = np.full((3, 3, 2), np.nan, dtype=np.float32)
+    data = RasterData(bands, Image.new("RGB", (3, 3)), {})
+    with pytest.raises(ValueError, match="Não há pixels válidos"):
+        spectral_index(data, "NDVI", 1, 2)
