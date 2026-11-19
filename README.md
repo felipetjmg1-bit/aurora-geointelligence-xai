@@ -133,7 +133,7 @@ Abra `http://localhost:7860`, carregue uma imagem autorizada e selecione **Execu
 pytest -q
 ```
 
-O workflow de referência está em [`docs/GITHUB_ACTIONS_WORKFLOW.yml`](docs/GITHUB_ACTIONS_WORKFLOW.yml), mas ainda não está ativo em `.github/workflows/`; portanto, não há badge de CI ativo a exibir.
+O CI está ativo em [`.github/workflows/ci.yml`](.github/workflows/ci.yml): executa verificação de sintaxe e testes em Python 3.11 para pushes e pull requests. Consulte a aba [Actions](../../actions) para o histórico atualizado.
 
 ## Estrutura do repositório
 
