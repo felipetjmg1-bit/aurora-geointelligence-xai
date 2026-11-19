@@ -94,8 +94,9 @@ def load_raster(path: str | os.PathLike) -> RasterData:
             with rasterio.open(source) as dataset:
                 if dataset.width * dataset.height > MAX_PIXELS:
                     raise ValueError("A imagem excede o limite de 50 milhões de pixels.")
-                raw = dataset.read(out_dtype="float32")
-                data = np.moveaxis(raw, 0, -1)
+                raw = dataset.read(out_dtype="float32", masked=True)
+                # Convert GeoTIFF nodata/masked cells to NaN so they are excluded from analysis.
+                data = np.moveaxis(raw.filled(np.nan), 0, -1)
                 tags = dataset.tags()
                 metadata.update({
                     "crs": str(dataset.crs) if dataset.crs else None,
@@ -194,22 +195,26 @@ def spectral_index(data: RasterData, index_type: str, band_a: int, band_b: int) 
     x = data.bands[:, :, a - 1].astype(np.float32)
     y = data.bands[:, :, b - 1].astype(np.float32)
     denom = x + y
-    index = np.divide(x - y, denom, out=np.zeros_like(x), where=np.abs(denom) > 1e-8)
+    valid_inputs = np.isfinite(x) & np.isfinite(y) & np.isfinite(denom) & (np.abs(denom) > 1e-8)
+    index = np.divide(x - y, denom, out=np.full_like(x, np.nan), where=valid_inputs)
     index = np.clip(index, -1.0, 1.0)
+    valid = np.isfinite(index)
+    if not valid.any():
+        raise ValueError("Não há pixels válidos para calcular o índice espectral com essas bandas.")
     small = _downsample(index)
-    scaled = np.clip((small + 1.0) * 127.5, 0, 255).astype(np.uint8)
+    # Invalid/nodata cells are neutral in the preview; their fraction is reported below.
+    scaled = np.clip((np.nan_to_num(small, nan=0.0) + 1.0) * 127.5, 0, 255).astype(np.uint8)
     # A deterministic cool-to-warm ramp for display, not a causal explanation.
     ramp = np.stack([scaled, np.minimum(255, 2 * np.abs(scaled.astype(np.int16) - 127)).astype(np.uint8), 255 - scaled], axis=-1)
-    valid = np.isfinite(index)
     summary = {
         "index": kind,
         "formula": formulas[kind],
         "band_a_1_based": a,
         "band_b_1_based": b,
         "meaning_of_bands": "A semântica das bandas foi definida pelo usuário e não é inferida pelo sistema.",
-        "min": round(float(np.nanmin(index)), 5),
-        "max": round(float(np.nanmax(index)), 5),
-        "mean": round(float(np.nanmean(index)), 5),
+        "min": round(float(index[valid].min()), 5),
+        "max": round(float(index[valid].max()), 5),
+        "mean": round(float(index[valid].mean()), 5),
         "valid_pixel_fraction": round(float(valid.mean()), 6),
         "caveat": "O índice é uma transformação numérica exploratória; não comprova condição ambiental ou classe de cobertura do solo.",
     }
