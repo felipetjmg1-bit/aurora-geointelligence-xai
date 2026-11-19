@@ -6,3 +6,10 @@ updates:
       interval: "weekly"
     open-pull-requests-limit: 5
     labels: ["dependencies"]
+    ignore:
+      # Pillow 13+ is currently incompatible with the pinned Gradio 5 line.
+      - dependency-name: "Pillow"
+        versions: [">=13"]
+      # Rasterio 1.5+ requires Python 3.12+, while this Space and CI target 3.11.
+      - dependency-name: "rasterio"
+        versions: [">=1.5"]
