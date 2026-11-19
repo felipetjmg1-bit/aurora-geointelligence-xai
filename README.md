@@ -18,25 +18,25 @@ python_version: "3.11"
 
 > **An open, experimental Python MVP for geospatial image inspection, remote-sensing exploration and traceable analysis reports.** The current baseline uses NumPy, Rasterio, Pillow and scikit-learn; it is not a PyTorch deep-learning engine and is not a production or forensic system.
 
-## Manifesto for technological sovereignty — English
+## Soberania tecnológica e cooperação nacional
 
-> **A press release is not sovereign infrastructure. Code that people can inspect, run, challenge and maintain is.**
+A Aurora Geointelligence XAI integra a agenda de pesquisa e desenvolvimento da Impulso Digital, com foco em capacidades brasileiras de inteligência artificial, geoinformação, observação da Terra, transparência técnica e governança responsável de dados.
 
-Digital-sovereignty rhetoric from Brasília—including public debate associated with MCTI/SETAD—does not by itself create compute access, predictable funding, technical continuity or meaningful channels for independent builders. The gap between official ambition and the material conditions that independent engineers report is a political problem, not an engineering achievement.
+O projeto adota uma postura colaborativa e institucionalmente respeitosa. Reconhece a importância da cooperação entre governo, universidades, institutos de pesquisa, empresas, laboratórios, comunidades técnicas e sociedade civil para ampliar a capacidade científica e tecnológica do Brasil.
 
-Aurora is an autonomous, openly documented engineering effort built outside the state bureaucracy. This repository answers rhetoric with code, explicit limitations and reproducible tests. It is the authors’ political position and account of reported experience—not an official investigation, a finding of misconduct, a claim about any named public servant, or a government-sponsored program. No state body is represented as endorsing or participating in this project.
+A iniciativa está aberta ao diálogo técnico com órgãos públicos e programas nacionais de ciência, tecnologia e inovação, respeitando seus processos, critérios, competências e instrumentos formais. Este convite não representa parceria, financiamento, aprovação, certificação ou participação institucional já estabelecida.
 
-The global ambition is real: build geospatial software that can withstand the scrutiny applied at leading Deep Tech and Earth-observation research centers. **That is a target for engineering and independent validation, not a claim that the current prototype already matches their performance.**
+A soberania tecnológica é tratada aqui como objetivo de longo prazo, construído por pesquisa, formação de pessoas, infraestrutura, interoperabilidade, código aberto, validação independente e colaboração entre instituições brasileiras.
 
-## Manifesto de soberania tecnológica — português
+## Technological sovereignty and national cooperation
 
-> **Nota à imprensa não é infraestrutura soberana. É código que outras pessoas podem inspecionar, executar, contestar e manter.**
+Aurora Geointelligence XAI is part of Impulso Digital's research and development agenda, focused on Brazilian capabilities in artificial intelligence, geospatial information, Earth observation, technical transparency and responsible data governance.
 
-O discurso de soberania digital em Brasília — inclusive o debate público associado ao MCTI/SETAD — não cria, por si só, acesso a computação, financiamento previsível, continuidade técnica nem canais efetivos para construtores independentes. A distância entre a ambição oficial e as condições materiais relatadas por quem constrói fora dos circuitos consolidados é um problema político, não uma realização de engenharia.
+The project follows a collaborative approach and respects Brazil's public institutions. It recognizes the value of cooperation among government, universities, research institutes, companies, laboratories, technical communities and civil society in strengthening the country's scientific and technological capacity.
 
-A Aurora é um esforço de engenharia autônomo, documentado abertamente e construído à margem da burocracia estatal. Este repositório responde ao discurso com código, limites explícitos e testes reproduzíveis. O texto expressa a posição política e a experiência relatada pelos autores: não é investigação oficial, constatação de irregularidade, acusação contra servidor específico nem declaração de apoio ou participação de órgão público.
+The initiative welcomes technical dialogue with public institutions and national science, technology and innovation programs, in accordance with their processes, criteria, mandates and formal instruments. This invitation does not represent an established partnership, grant, endorsement, certification or institutional participation.
 
-A ambição é global: desenvolver software geoespacial capaz de suportar o rigor técnico e científico dos principais centros de Deep Tech e observação da Terra. **Isso é uma meta de engenharia e validação independente, não uma alegação de que o protótipo atual já tenha desempenho equivalente.**
+Technological sovereignty is treated as a long-term objective supported by research, skills development, infrastructure, interoperability, open source, independent validation and cooperation among Brazilian institutions.
 
 ![Visual conceitual da Aurora Geointelligence sobre a América do Sul](assets/aurora-geointelligence-hero.png)
 
@@ -110,9 +110,9 @@ Os nomes abaixo compõem uma agenda comum de pesquisa e prototipagem. **Não for
 
 ## Chamada global: revisão independente e cooperação concreta
 
-Desenvolvedores, pesquisadores de geoinformação e observação da Terra, laboratórios de Deep Tech, investidores, fundos de Venture Capital e parceiros estratégicos: a engenharia brasileira precisa ser examinada pelo código e pela evidência — não por proximidade a um gabinete. **Inspecionem, reproduzam, apontem falhas e proponham benchmarks.**
+Desenvolvedores, pesquisadores de geoinformação e observação da Terra, universidades, institutos de pesquisa, laboratórios de Deep Tech, órgãos públicos, empresas, investidores e parceiros estratégicos estão convidados a conhecer o projeto. **A colaboração técnica, a revisão independente e a avaliação por evidências são essenciais para fortalecer a inovação brasileira.**
 
-A comunidade MLCommons e as frentes de cooperação Brasil–Europa/Brasil–Espanha são convidadas a conhecer o projeto e, se houver interesse e escopo, conversar sobre colaboração verificável. Este convite não declara participação, reconhecimento, parceria, financiamento ou validação por MLCommons, Finep, CDTI, MCTI/SETAD ou qualquer outra entidade. Soberania tecnológica não se decreta em portaria: depende de capacidade instalada, governança e código que possa ser executado e auditado.
+Comunidades técnicas internacionais e iniciativas de cooperação Brasil–Europa/Brasil–Espanha são bem-vindas para conhecer o projeto e, havendo interesse e compatibilidade de objetivos, avaliar possibilidades de colaboração. Não se declara participação, reconhecimento, parceria, financiamento ou validação por MLCommons, Finep, CDTI, MCTI/SETAD ou qualquer outra entidade. O fortalecimento da soberania tecnológica depende de capacidade científica e industrial, formação, governança, infraestrutura e soluções que possam ser executadas, avaliadas e auditadas.
 
 Para começar, abra uma issue técnica ou envie um pull request. Propostas de colaboração devem explicitar recursos, responsabilidades, governança de dados e critérios de validação. Não envie dados pessoais, confidenciais ou sem autorização.
 
@@ -157,7 +157,7 @@ Aurora Geointelligence XAI is an experimental, CPU-first Python MVP for geospati
 
 The implementation uses NumPy arrays, Rasterio, Pillow, scikit-learn and Gradio. **It does not use PyTorch, contain pretrained remote-sensing weights, provide validated model-level explainability, claim scientific accuracy, or constitute a production/forensic system.** Clusters are unlabeled visual groups; spectral indices depend on correct sensor bands and calibration. No MLCommons benchmark, Finep/CDTI partnership, institutional endorsement, legal admissibility or operational DREX/Cristal/Ybyrá integration is claimed.
 
-The English and Portuguese manifestos express the authors’ political position. International developers, researchers and investors are invited to inspect the implementation, request reproducible evidence and discuss responsible cooperation.
+The project welcomes technical review and responsible cooperation with Brazilian and international researchers, institutions and industry partners. Institutional relationships are described only when supported by formal, verifiable evidence.
 
 ## License and data governance
 
