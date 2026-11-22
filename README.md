@@ -10,6 +10,12 @@ python_version: "3.11"
 
 # Aurora GeoIntelligence XAI
 
+
+<p align="center">
+  <img src="PROJECT-OVERVIEW.svg" alt="Diagrama de funcionalidades de Aurora GeoIntelligence XAI" width="100%">
+</p>
+
+
 **[MVP experimental]** Aplicação Python com interface Gradio para inspeção de imagens e exploração geoespacial em CPU. Não é um sistema de produção, ferramenta pericial ou classificador semântico de cobertura do solo.
 
 ## Problema e objetivo
