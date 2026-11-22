@@ -82,7 +82,7 @@ Apache-2.0. Consulte [LICENSE](LICENSE).
 
 ## Responsável
 
-Impulso Digital Soluções em I.A. Ltda. · [GitHub](https://github.com/felipetjmg1-bit)
+Impulso Digital Soluções em IA · [GitHub](https://github.com/felipetjmg1-bit)
 
 
 ## Validação e desenvolvimento
