@@ -83,3 +83,9 @@ Apache-2.0. Consulte [LICENSE](LICENSE).
 ## Responsável
 
 Impulso Digital Soluções em I.A. Ltda. · [GitHub](https://github.com/felipetjmg1-bit)
+
+
+## Validação e desenvolvimento
+
+- [Plano de validação e critérios de release](docs/VALIDATION-PLAN.md)
+- [Workflow CPU CI](.github/workflows/portfolio-ci.yml)
