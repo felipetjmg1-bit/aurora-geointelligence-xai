@@ -16,11 +16,11 @@ python_version: "3.11"
 </p>
 
 
-**[MVP experimental]** Aplicação Python com interface Gradio para inspeção de imagens e exploração geoespacial em CPU. Não é um sistema de produção, ferramenta pericial ou classificador semântico de cobertura do solo.
+**[MVP de inspeção geoespacial em validação]** Aplicação Python com interface Gradio para inspeção de imagens e exploração geoespacial em CPU. Não é um sistema de produção, ferramenta pericial ou classificador semântico de cobertura do solo.
 
 ## Problema e objetivo
 
-O projeto oferece um fluxo local e reproduzível para explorar imagens PNG, JPEG, TIFF e GeoTIFF, visualizar grupos de cores e registrar parâmetros e metadados disponíveis. É uma base de pesquisa para geoinformação e observação da Terra, com atenção a processamento acessível e transparência técnica no contexto brasileiro.
+O projeto oferece um fluxo local e reproduzível para explorar imagens PNG, JPEG, TIFF e GeoTIFF, visualizar grupos de cores e registrar parâmetros e metadados disponíveis. É uma aplicação CPU-first para inspeção e exploração geoespacial e observação da Terra, com atenção a processamento acessível e transparência técnica no contexto brasileiro.
 
 ## O que está implementado
 
