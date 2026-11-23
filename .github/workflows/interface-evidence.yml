@@ -1,0 +1,78 @@
+name: Aurora GeoIntelligence interface evidence
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: aurora-interface-evidence-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  interface:
+    name: Launch Gradio and capture real UI
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PORT: "7860"
+      MPLBACKEND: Agg
+      GRADIO_ANALYTICS_ENABLED: "False"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: requirements.txt
+      - name: Install application and browser dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Run automated tests
+        env:
+          PYTHONPATH: src
+        run: python -m pytest -q
+      - name: Start the real Gradio application
+        run: |
+          nohup python app.py > /tmp/aurora-gradio.log 2>&1 &
+          echo $! > /tmp/aurora-gradio.pid
+          python - <<'PY'
+          import time
+          import urllib.request
+          url = "http://127.0.0.1:7860"
+          for attempt in range(90):
+              try:
+                  with urllib.request.urlopen(url, timeout=2) as response:
+                      if response.status == 200:
+                          print("Gradio is responding.")
+                          break
+              except Exception:
+                  time.sleep(2)
+          else:
+              print(open("/tmp/aurora-gradio.log", encoding="utf-8").read())
+              raise SystemExit("Gradio did not become ready.")
+          PY
+      - name: Verify and capture desktop and mobile interfaces
+        run: python scripts/capture-interface.py
+      - name: Stop application
+        if: always()
+        run: |
+          if [ -f /tmp/aurora-gradio.pid ]; then kill "$(cat /tmp/aurora-gradio.pid)" || true; fi
+      - name: Upload real interface screenshots and server log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aurora-geointelligence-real-interface
+          path: |
+            artifacts/interface/
+            /tmp/aurora-gradio.log
+          if-no-files-found: warn
+          retention-days: 30
