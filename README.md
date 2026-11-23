@@ -95,3 +95,8 @@ Impulso Digital Soluções em IA · [GitHub](https://github.com/felipetjmg1-bit)
 
 - [Plano de validação e critérios de release](docs/VALIDATION-PLAN.md)
 - [Workflow CPU CI](.github/workflows/portfolio-ci.yml)
+
+
+## Fluxo passo a passo
+
+Consulte o [guia textual com as etapas do projeto](docs/PROCESSO-PASSO-A-PASSO.md). O infográfico acima resume visualmente o mesmo fluxo.
